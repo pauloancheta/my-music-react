@@ -1,8 +1,9 @@
 var Search = React.createClass({
   getInitialState: function(){
     var albumTitle = [],
-        images = [];
-    return {albumTitle: albumTitle, images: images}
+        images = [],
+        albums=[];
+    return {albums: albums}
   },
 
   submitHandler: function(e) {
@@ -16,24 +17,18 @@ var Search = React.createClass({
         type: 'album'
       },
       success: function (response) {
-        var nameResult = [],
-            imageResult = [];
-        response.albums.items.forEach(function(album){
-          nameResult.push(album.name);
-          imageResult.push(album.images[0]);
-          console.log(album)
-
-        })
-        self.setState({albumTitle: nameResult, images: imageResult});
+        self.setState({albums: response.albums.items});
       }
     });
   },
 
   render: function() {
     var titles= []
-    this.state.albumTitle.forEach(function(title){
-      titles.push(<Album title={title} />);
+    this.state.albums.forEach(function(album){
+      console.log(album)
+      titles.push(<Album title={album.name} imageUrl={album.images[1].url}/>);
     })
+
     return(
       <div>
         <h1>Search for an Artist</h1>
