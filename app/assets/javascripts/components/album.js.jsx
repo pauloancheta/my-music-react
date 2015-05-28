@@ -11,8 +11,6 @@ var Album = React.createClass({
   },
 
   playMusic: function(){
-    console.log(this.state.preview)
-
     if(!this.state.isPreviewPlaying){
       this.state.preview.play();
       this.setState({isPreviewPlaying: true})
@@ -22,13 +20,11 @@ var Album = React.createClass({
       this.setState({isPreviewPlaying: false})
     }
   },
-
   render: function(){
     return (
-      <div className="album-image" onClick={this.playMusic}>
-        <img src={this.state.image} />
+      <div className="album-image">
+        <img src={this.state.image} onClick={this.playMusic}/>
         <p>{this.state.albumName}</p>
-        <p>{this.props.albumData.tracks}</p>
       </div>
     )
   }
