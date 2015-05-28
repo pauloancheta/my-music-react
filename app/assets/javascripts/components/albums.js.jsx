@@ -4,7 +4,6 @@ var Albums = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps){
-    console.log(nextProps)
     this.setState({albums: nextProps.albums})
   },
   

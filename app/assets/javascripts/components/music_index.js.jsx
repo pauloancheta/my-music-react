@@ -14,7 +14,6 @@ var MusicIndex = React.createClass({
         type: 'album'
       },
       success: function (response) {
-        console.log(response.albums.items)
         self.setState({albums: response.albums.items});
       }
     });

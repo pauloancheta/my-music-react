@@ -34,7 +34,15 @@ var Album = React.createClass({
   addToLibrary: function(e){
     e.stopPropagation();
     e.preventDefault();
-    console.log('clicked!');
+    var name    = this.state.albumName + '',
+        image   = this.state.image + '',
+        preview = this.state.preview + '';
+
+    $.post('/albums', {
+      name: name, 
+      image_url: image, 
+      preview_url: preview
+    });
   },
 
   render: function(){
