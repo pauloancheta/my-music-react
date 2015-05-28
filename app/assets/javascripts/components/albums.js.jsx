@@ -10,8 +10,8 @@ var Albums = React.createClass({
   
   render: function() {
     var titles = [];
-    this.state.albums.forEach(function(album){
-      titles.push(<Album albumData={album} />);
+    this.state.albums.forEach(function(album, key){
+      titles.push(<Album albumData={album} key={key}/>);
     })
 
     return(

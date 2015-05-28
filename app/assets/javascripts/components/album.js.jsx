@@ -1,12 +1,16 @@
 var Album = React.createClass({
   getInitialState: function(){
     var image = '';
-    image = this.props.albumData.images[1].url;
+    image = this.props.albumData.images[0].url;
     return{ image: image, albumName: this.props.albumData.name }
   },
 
   componentWillReceiveProps: function(nextProps){
-    this.setState({image: nextProps.albumData.images[1].url, albumName: nextProps.albumData.name })
+    var self = this;
+    this.setState({image: nextProps.albumData.images[0].url, albumName: nextProps.albumData.name })
+    $.get( this.props.albumData.href, function(data){
+      self.setState({preview: new Audio(data.tracks.items[0].preview_url) })
+    })
   },
 
   componentDidMount: function(){
@@ -27,11 +31,20 @@ var Album = React.createClass({
     }
   },
 
+  addToLibrary: function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    console.log('clicked!');
+  },
+
   render: function(){
     return (
       <div className="album-image">
         <img src={this.state.image} onClick={this.playMusic}/>
-        <p>{this.state.albumName}</p>
+        <div className="album-footer">
+          <p className="album-name">{this.state.albumName}</p>
+          <a className="album-add-link" onClick={this.addToLibrary}>Add to Library</a>
+        </div>
       </div>
     )
   }

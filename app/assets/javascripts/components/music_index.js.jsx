@@ -23,7 +23,7 @@ var MusicIndex = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>Search for an Artist</h1>
+        <h1 className="page-title">My Music Library</h1>
         <form id="search-form" onSubmit={this.submitHandler} >
             <input type="text" ref="query" placeholder="Type an Artist Name"/>
             <input type="submit" value="Search" />
