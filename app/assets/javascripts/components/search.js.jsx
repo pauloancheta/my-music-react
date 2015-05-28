@@ -1,9 +1,6 @@
 var Search = React.createClass({
   getInitialState: function(){
-    var albumTitle = [],
-        images = [],
-        albums=[];
-    return {albums: albums}
+    return {albums: []}
   },
 
   submitHandler: function(e) {
@@ -25,15 +22,12 @@ var Search = React.createClass({
   render: function() {
     var titles= []
     this.state.albums.forEach(function(album){
-      console.log(album)
-      titles.push(<Album title={album.name} imageUrl={album.images[1].url}/>);
+      titles.push(<Album albumData={album} />);
     })
 
     return(
       <div>
         <h1>Search for an Artist</h1>
-
-        <p>Type an artist name and click on "Search". Then, click on any album from the results to play 30 seconds of its first track.</p>
         <form id="search-form" onSubmit={this.submitHandler} >
             <input type="text" ref="query" className="form-control" placeholder="Type an Artist Name"/>
             <input type="submit" className="btn btn-primary" value="Search" />
