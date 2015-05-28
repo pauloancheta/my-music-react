@@ -1,6 +1,12 @@
 var Album = React.createClass({
   getInitialState: function(){
-    return{ image: this.props.albumData.images[1].url, albumName: this.props.albumData.name }
+    var image = '';
+    image = this.props.albumData.images[1].url;
+    return{ image: image, albumName: this.props.albumData.name }
+  },
+
+  componentWillReceiveProps: function(nextProps){
+    this.setState({image: nextProps.albumData.images[1].url, albumName: nextProps.albumData.name })
   },
 
   componentDidMount: function(){
@@ -20,6 +26,7 @@ var Album = React.createClass({
       this.setState({isPreviewPlaying: false})
     }
   },
+
   render: function(){
     return (
       <div className="album-image">
