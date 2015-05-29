@@ -14,7 +14,7 @@ var Albums = React.createClass({
     })
 
     return(
-      <div>
+      <div className="albums-container">
         {titles}
       </div>
     )

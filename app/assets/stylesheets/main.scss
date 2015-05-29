@@ -1,3 +1,62 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+header {
+  margin: 0;
+  color: white;
+  background-color: #222;
+  position: relative;
+  padding-left: 20px;
+
+  .page-title {
+    margin: 0;
+    font-family: 'Rock Salt', cursive;
+  }
+
+  form#search-form {
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+
+    input[type="text"] {
+      height: 30px;
+      width: 300px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #CCC;
+      color: white;
+      outline: none;
+      text-align: center;
+      transition: 1s;
+    }
+
+    input[type='text']:focus {
+      font-size: 20px;
+    }
+  }
+}
+
+.landing-page {
+  background: url(asset-path('piano.jpg'));
+  margin: 0;
+  height: 89vh;
+  padding-left: 20px;
+  padding-top: 40px;
+  h1 {
+    margin: 0;
+  }
+}
+
+.albums-container {
+  padding-left: 20px;
+}
+
+
 .album-image {
   display: inline-block;
   text-align: center;
