@@ -43,11 +43,14 @@ header {
 
 .landing-page {
   background: url(asset-path('piano.jpg'));
+  color: white;
+  text-align: right;
   margin: 0;
   height: 89vh;
-  padding-left: 20px;
-  padding-top: 40px;
+  padding-right: 50px;
+  padding-top: 150px;
   h1 {
+    font-size: 70px;
     margin: 0;
   }
 }
@@ -70,6 +73,13 @@ header {
     margin: 0;
     height: 300px;
     width: 300px;
+  }
+
+  .darken {
+    position: absolute;
+    top: 0;
+    height: 330px;
+    background-color: blue;
   }
 
   .album-footer {

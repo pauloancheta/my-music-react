@@ -24,6 +24,13 @@ var Album = React.createClass({
     if(!this.state.isPreviewPlaying){
       this.state.preview.play();
       this.setState({isPreviewPlaying: true})
+
+
+
+      var self = this;
+      setTimeout(function(){
+        self.setState({isPreviewPlaying: false})
+      }, 30000)
     }
     else{
       this.state.preview.pause();
