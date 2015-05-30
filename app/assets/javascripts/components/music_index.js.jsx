@@ -1,6 +1,6 @@
 var MusicIndex = React.createClass({
   getInitialState: function(){
-    return {albums: []}
+    return {albums: [], savedAlbums: this.props.albums}
   },
 
   submitHandler: function(e) {
@@ -24,6 +24,10 @@ var MusicIndex = React.createClass({
     }
   },
 
+  viewCollection: function(){
+    console.log(this.state.savedAlbums)
+  },
+
   render: function() {
     var albums = <Albums albums={this.state.albums} />;
     var landingPage = <LandingPage />
@@ -32,8 +36,9 @@ var MusicIndex = React.createClass({
         <header>
           <h1 className="page-title">My Music Library</h1>
           <form id="search-form" onSubmit={this.submitHandler} >
-              <input type="text" ref="query" placeholder="Search Artists"/>
+            <input type="text" ref="query" placeholder="Search Artists"/>
           </form>
+          <a onClick={this.viewCollection}> View Collection </a>
         </header>
         { this.state.albums.length < 1 ? landingPage : albums }
       </div>
@@ -41,4 +46,3 @@ var MusicIndex = React.createClass({
     );
   }
 });
-              // <input type="submit" value="Search" />

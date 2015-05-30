@@ -46,7 +46,7 @@ var Album = React.createClass({
     $.post('/albums', {
       name: name, 
       image_url: image, 
-      spotify_album_id: albumID,
+      album_id: albumID,
     });
   },
 
