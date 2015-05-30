@@ -5,5 +5,6 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    
   end
 end

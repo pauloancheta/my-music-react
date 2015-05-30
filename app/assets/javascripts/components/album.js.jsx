@@ -2,7 +2,7 @@ var Album = React.createClass({
   getInitialState: function(){
     var image = '';
     image = this.props.albumData.images[0].url;
-    return{ image: image, albumName: this.props.albumData.name }
+    return{ image: image, albumName: this.props.albumData.name, albumID: this.props.albumData.id }
   },
 
   componentWillReceiveProps: function(nextProps){
@@ -25,8 +25,6 @@ var Album = React.createClass({
       this.state.preview.play();
       this.setState({isPreviewPlaying: true})
 
-
-
       var self = this;
       setTimeout(function(){
         self.setState({isPreviewPlaying: false})
@@ -43,12 +41,12 @@ var Album = React.createClass({
     e.preventDefault();
     var name    = this.state.albumName + '',
         image   = this.state.image + '',
-        preview = this.state.preview + '';
+        albumID = this.state.albumID + '';
 
     $.post('/albums', {
       name: name, 
       image_url: image, 
-      preview_url: preview
+      spotify_album_id: albumID,
     });
   },
 

@@ -9,7 +9,8 @@ class Album < ActiveRecord::Base
     Album.new(
       name: response['name'],
       image_url: response['image_url'],
-      preview_url: response['preview_url']
+      preview_url: response['preview_url'],
+      spotify_album_id: response['album_id']
     )
   end
 end

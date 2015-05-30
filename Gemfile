@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 gem 'bcrypt', '~> 3.1.7'
+gem 'quiet_assets'
 
 group :production do
   gem 'rails_12factor'

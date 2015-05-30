@@ -11,6 +11,7 @@ header {
   background-color: #222;
   position: relative;
   padding-left: 20px;
+  height: 12vh;
 
   .page-title {
     margin: 0;
@@ -42,11 +43,11 @@ header {
 }
 
 .landing-page {
-  background: url(asset-path('piano.jpg'));
+  background: url(asset-path('piano.jpg')) no-repeat;
   color: white;
   text-align: right;
   margin: 0;
-  height: 89vh;
+  height: 95vh;
   padding-right: 50px;
   padding-top: 150px;
   h1 {
@@ -107,4 +108,10 @@ header {
     }
   }
 
+}
+
+@media (max-width: 1100px) {
+  h1.page-title {
+    font-size: 4em;
+  }
 }
